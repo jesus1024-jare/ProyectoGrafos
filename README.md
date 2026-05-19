@@ -2,7 +2,7 @@
 
 Aplicación web para visualizar y analizar un **grafo de municipios colombianos**: mapa interactivo, cálculo de **excentricidades** (radio, diámetro, centros), **rutas óptimas** y **ciclos**, con backend en **ASP.NET Core** y frontend en **HTML/CSS/JavaScript** con **Leaflet**.
 
-Réplica en C# del proyecto original en Java/Spring Boot, con API REST compatible y mejoras en la interfaz (panel de excentricidades, rutas en el mapa, caché de rutas por carretera).
+Se utulizó Open Street Map para obtener las coordenadas exactas de cada municipio y ciudad usado.
 
 **Repositorio:** [github.com/jesus1024-jare/ProyectoGrafos](https://github.com/jesus1024-jare/ProyectoGrafos)
 
