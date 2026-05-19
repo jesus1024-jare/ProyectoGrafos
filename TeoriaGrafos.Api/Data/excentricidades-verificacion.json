@@ -1,0 +1,888 @@
+﻿{
+    "generadoEn":  "2026-05-18T20:02:11.3236412-05:00",
+    "fuenteApi":  "http://localhost:8081/api/grafos/excentricidades-completas",
+    "configuracion":  {
+                          "nodesFile":  "Data/municipalities.csv",
+                          "connectionsFile":  "(vacÃ­o = 4 vecinos geogrÃ¡ficos mÃ¡s cercanos)",
+                          "nearestNeighbors":  4
+                      },
+    "resumen":  {
+                    "totalMunicipios":  112,
+                    "radioSaltos":  13,
+                    "diametroSaltos":  17,
+                    "municipiosRadio":  4,
+                    "municipiosCentro":  55,
+                    "municipiosDiametro":  21,
+                    "distribucionPorExcentricidad":  {
+                                                         "16":  36,
+                                                         "15":  20,
+                                                         "17":  21,
+                                                         "14":  31,
+                                                         "13":  4
+                                                     }
+                },
+    "comprobaciones":  {
+                           "radioCoincideConMinimo":  true,
+                           "diametroCoincideConMaximo":  true,
+                           "todosLosRadioEnLista":  true,
+                           "todosLosDiametroEnLista":  true,
+                           "explicacionColores":  {
+                                                      "naranja":  "excentricidad = radio (13)",
+                                                      "verde":  "excentricidad entre las 3 menores distintas",
+                                                      "rojo":  "excentricidad = diametro (17)",
+                                                      "azul":  "resto de municipios"
+                                                  }
+                       },
+    "nodosRadio":  {
+                       "ids":  [
+                                   "703168318",
+                                   "703221920",
+                                   "287899552",
+                                   "4727968726"
+                               ],
+                       "nombres":  [
+                                       "Aipe",
+                                       "Ortega",
+                                       "Saldaña",
+                                       "San Juan de Villalobos"
+                                   ]
+                   },
+    "nodosDiametro":  {
+                          "ids":  [
+                                      "703168107",
+                                      "414084105",
+                                      "703168213",
+                                      "274021463",
+                                      "703168547",
+                                      "703168132",
+                                      "703168068",
+                                      "703168576",
+                                      "703168627",
+                                      "703168655",
+                                      "703168146",
+                                      "430208094",
+                                      "299736407",
+                                      "703168625",
+                                      "703168713",
+                                      "703168420",
+                                      "703168214",
+                                      "703168218",
+                                      "11177576196",
+                                      "1283541719",
+                                      "703166714"
+                                  ],
+                          "nombres":  [
+                                          "Balboa",
+                                          "Beltrán",
+                                          "Buenos Aires",
+                                          "Cali",
+                                          "Chaguaní",
+                                          "El Bordo",
+                                          "El Rosario",
+                                          "Fosca",
+                                          "Funza",
+                                          "Guayabal de Síquima",
+                                          "Jambaló",
+                                          "Morales",
+                                          "Popayán",
+                                          "San Antonio del Tequendama",
+                                          "San Juanito",
+                                          "San Martín",
+                                          "Santander de Quilichao",
+                                          "Toribío",
+                                          "Ubaque",
+                                          "Villa Rica",
+                                          "Villavicencio"
+                                      ]
+                      },
+    "nodosCentro":  {
+                        "ids":  [
+                                    "703168174",
+                                    "703168318",
+                                    "6699347780",
+                                    "703168173",
+                                    "703168250",
+                                    "611180443",
+                                    "356658395",
+                                    "293169585",
+                                    "703168247",
+                                    "703168198",
+                                    "703222766",
+                                    "363913617",
+                                    "703219870",
+                                    "703168438",
+                                    "703168184",
+                                    "703168049",
+                                    "703166719",
+                                    "703168192",
+                                    "703168188",
+                                    "703168242",
+                                    "2978290242",
+                                    "9863038666",
+                                    "703168135",
+                                    "703168204",
+                                    "703168193",
+                                    "703168432",
+                                    "703168267",
+                                    "703224410",
+                                    "703166711",
+                                    "703221093",
+                                    "3377581135",
+                                    "703168125",
+                                    "703221920",
+                                    "703223995",
+                                    "6693846013",
+                                    "703168127",
+                                    "421858294",
+                                    "703168186",
+                                    "287899552",
+                                    "435351085",
+                                    "703167875",
+                                    "4727968726",
+                                    "703168248",
+                                    "404732744",
+                                    "343087241",
+                                    "703168323",
+                                    "703167874",
+                                    "6435604765",
+                                    "703222630",
+                                    "703168315",
+                                    "703168202",
+                                    "703168249",
+                                    "703222081",
+                                    "588130543",
+                                    "271140349"
+                                ],
+                        "nombres":  [
+                                        "Acevedo",
+                                        "Aipe",
+                                        "Algeciras",
+                                        "Altamira",
+                                        "Andalucía",
+                                        "Belalcázar",
+                                        "Caicedonia",
+                                        "Cajamarca",
+                                        "Calima El Darién",
+                                        "Campoalegre",
+                                        "Carmen de Apicalá",
+                                        "Casabianca",
+                                        "Chaparral",
+                                        "Circasia",
+                                        "El Paujíl",
+                                        "El Tablón de Gómez",
+                                        "Florencia",
+                                        "Garzón",
+                                        "Gigante",
+                                        "Ginebra",
+                                        "Girardot",
+                                        "Ibagué",
+                                        "La Argentina",
+                                        "La Macarena",
+                                        "La Plata",
+                                        "La Tebaida",
+                                        "La Victoria",
+                                        "Líbano",
+                                        "Mocoa",
+                                        "Natagaima",
+                                        "Neiva",
+                                        "Oporapa",
+                                        "Ortega",
+                                        "Piedras",
+                                        "Pital",
+                                        "Pitalito",
+                                        "Planadas",
+                                        "Puerto Rico",
+                                        "Saldaña",
+                                        "San Antonio",
+                                        "San Francisco",
+                                        "San Juan de Villalobos",
+                                        "San Pedro",
+                                        "San Vicente del Caguán",
+                                        "Santa Isabel",
+                                        "Santa María",
+                                        "Santiago",
+                                        "Sibundoy",
+                                        "Suárez",
+                                        "Tello",
+                                        "Tesalia",
+                                        "Tuluá",
+                                        "Valle de San Juan",
+                                        "Villamaría",
+                                        "Yaguará"
+                                    ]
+                    },
+    "excentricidades":  [
+                            {
+                                "nodoId":  "703168318",
+                                "nodoNombre":  "Aipe",
+                                "excentricidad":  13,
+                                "tipoEnMapa":  "radio"
+                            },
+                            {
+                                "nodoId":  "703221920",
+                                "nodoNombre":  "Ortega",
+                                "excentricidad":  13,
+                                "tipoEnMapa":  "radio"
+                            },
+                            {
+                                "nodoId":  "287899552",
+                                "nodoNombre":  "Saldaña",
+                                "excentricidad":  13,
+                                "tipoEnMapa":  "radio"
+                            },
+                            {
+                                "nodoId":  "4727968726",
+                                "nodoNombre":  "San Juan de Villalobos",
+                                "excentricidad":  13,
+                                "tipoEnMapa":  "radio"
+                            },
+                            {
+                                "nodoId":  "703168174",
+                                "nodoNombre":  "Acevedo",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "6699347780",
+                                "nodoNombre":  "Algeciras",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168173",
+                                "nodoNombre":  "Altamira",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168250",
+                                "nodoNombre":  "Andalucía",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "356658395",
+                                "nodoNombre":  "Caicedonia",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "293169585",
+                                "nodoNombre":  "Cajamarca",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168198",
+                                "nodoNombre":  "Campoalegre",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703219870",
+                                "nodoNombre":  "Chaparral",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168438",
+                                "nodoNombre":  "Circasia",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168184",
+                                "nodoNombre":  "El Paujíl",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703166719",
+                                "nodoNombre":  "Florencia",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168192",
+                                "nodoNombre":  "Garzón",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168188",
+                                "nodoNombre":  "Gigante",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "9863038666",
+                                "nodoNombre":  "Ibagué",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168432",
+                                "nodoNombre":  "La Tebaida",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168267",
+                                "nodoNombre":  "La Victoria",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703166711",
+                                "nodoNombre":  "Mocoa",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703221093",
+                                "nodoNombre":  "Natagaima",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "3377581135",
+                                "nodoNombre":  "Neiva",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168127",
+                                "nodoNombre":  "Pitalito",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "421858294",
+                                "nodoNombre":  "Planadas",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168186",
+                                "nodoNombre":  "Puerto Rico",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "435351085",
+                                "nodoNombre":  "San Antonio",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703167875",
+                                "nodoNombre":  "San Francisco",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168248",
+                                "nodoNombre":  "San Pedro",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "404732744",
+                                "nodoNombre":  "San Vicente del Caguán",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168323",
+                                "nodoNombre":  "Santa María",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703222630",
+                                "nodoNombre":  "Suárez",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168315",
+                                "nodoNombre":  "Tello",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168249",
+                                "nodoNombre":  "Tuluá",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703222081",
+                                "nodoNombre":  "Valle de San Juan",
+                                "excentricidad":  14,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "611180443",
+                                "nodoNombre":  "Belalcázar",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168247",
+                                "nodoNombre":  "Calima El Darién",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703222766",
+                                "nodoNombre":  "Carmen de Apicalá",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "363913617",
+                                "nodoNombre":  "Casabianca",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168049",
+                                "nodoNombre":  "El Tablón de Gómez",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168242",
+                                "nodoNombre":  "Ginebra",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "2978290242",
+                                "nodoNombre":  "Girardot",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168135",
+                                "nodoNombre":  "La Argentina",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168204",
+                                "nodoNombre":  "La Macarena",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168193",
+                                "nodoNombre":  "La Plata",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703224410",
+                                "nodoNombre":  "Líbano",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168125",
+                                "nodoNombre":  "Oporapa",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703223995",
+                                "nodoNombre":  "Piedras",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "6693846013",
+                                "nodoNombre":  "Pital",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "343087241",
+                                "nodoNombre":  "Santa Isabel",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703167874",
+                                "nodoNombre":  "Santiago",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "6435604765",
+                                "nodoNombre":  "Sibundoy",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "703168202",
+                                "nodoNombre":  "Tesalia",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "588130543",
+                                "nodoNombre":  "Villamaría",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "271140349",
+                                "nodoNombre":  "Yaguará",
+                                "excentricidad":  15,
+                                "tipoEnMapa":  "centro"
+                            },
+                            {
+                                "nodoId":  "459561078",
+                                "nodoNombre":  "Almaguer",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168659",
+                                "nodoNombre":  "Anolaima",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168452",
+                                "nodoNombre":  "Apulo",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "671806634",
+                                "nodoNombre":  "Bogotá",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "315015318",
+                                "nodoNombre":  "Chachagüí",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168220",
+                                "nodoNombre":  "Dagua",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168612",
+                                "nodoNombre":  "El Colegio",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168129",
+                                "nodoNombre":  "El Tambo",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "277838403",
+                                "nodoNombre":  "Facatativá",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168565",
+                                "nodoNombre":  "Fusagasugá",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168345",
+                                "nodoNombre":  "Granada",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168348",
+                                "nodoNombre":  "Guamal",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168462",
+                                "nodoNombre":  "Guataquí",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "270730573",
+                                "nodoNombre":  "Guayabal",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168350",
+                                "nodoNombre":  "Guayabetal",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "8109545372",
+                                "nodoNombre":  "Génova",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "459572328",
+                                "nodoNombre":  "La Sierra",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168115",
+                                "nodoNombre":  "La Vega",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168212",
+                                "nodoNombre":  "Miranda",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168478",
+                                "nodoNombre":  "Nilo",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168136",
+                                "nodoNombre":  "Paispamba",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "287002754",
+                                "nodoNombre":  "Palocabildo",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168351",
+                                "nodoNombre":  "Pandi",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "309303769",
+                                "nodoNombre":  "Pasto",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168155",
+                                "nodoNombre":  "Piendamó",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168216",
+                                "nodoNombre":  "Pradera",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "440537207",
+                                "nodoNombre":  "Pulí",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "7778101886",
+                                "nodoNombre":  "San Juan de Arama",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168073",
+                                "nodoNombre":  "San Lorenzo",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168038",
+                                "nodoNombre":  "San Pedro de Cartago",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "311484945",
+                                "nodoNombre":  "Soacha",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "459584400",
+                                "nodoNombre":  "Totoró",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168584",
+                                "nodoNombre":  "Une",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "270730179",
+                                "nodoNombre":  "Venadillo",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "353194198",
+                                "nodoNombre":  "Vista Hermosa",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "589271277",
+                                "nodoNombre":  "Yumbo",
+                                "excentricidad":  16,
+                                "tipoEnMapa":  "normal"
+                            },
+                            {
+                                "nodoId":  "703168107",
+                                "nodoNombre":  "Balboa",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "414084105",
+                                "nodoNombre":  "Beltrán",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168213",
+                                "nodoNombre":  "Buenos Aires",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "274021463",
+                                "nodoNombre":  "Cali",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168547",
+                                "nodoNombre":  "Chaguaní",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168132",
+                                "nodoNombre":  "El Bordo",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168068",
+                                "nodoNombre":  "El Rosario",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168576",
+                                "nodoNombre":  "Fosca",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168627",
+                                "nodoNombre":  "Funza",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168655",
+                                "nodoNombre":  "Guayabal de Síquima",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168146",
+                                "nodoNombre":  "Jambaló",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "430208094",
+                                "nodoNombre":  "Morales",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "299736407",
+                                "nodoNombre":  "Popayán",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168625",
+                                "nodoNombre":  "San Antonio del Tequendama",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168713",
+                                "nodoNombre":  "San Juanito",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168420",
+                                "nodoNombre":  "San Martín",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168214",
+                                "nodoNombre":  "Santander de Quilichao",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703168218",
+                                "nodoNombre":  "Toribío",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "11177576196",
+                                "nodoNombre":  "Ubaque",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "1283541719",
+                                "nodoNombre":  "Villa Rica",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            },
+                            {
+                                "nodoId":  "703166714",
+                                "nodoNombre":  "Villavicencio",
+                                "excentricidad":  17,
+                                "tipoEnMapa":  "diametro"
+                            }
+                        ]
+}

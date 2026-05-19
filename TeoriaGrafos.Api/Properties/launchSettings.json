@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "TeoriaGrafos.Api": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "mapa.html",
+      "applicationUrl": "http://localhost:8081",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Grafos - Municipios (.NET)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="/css/mapa.css">
+</head>
+<body>
+    <div class="app-shell">
+        <!-- Barra lateral: menú principal -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon"><i class="fi fi-rr-map"></i></div>
+                <div class="brand-text">
+                    <span class="brand-title">Grafo Municipal</span>
+                    <span class="dotnet-badge">.NET</span>
+                </div>
+            </div>
+
+            <div class="sidebar-search search-wrap">
+                <i class="fi fi-rr-search fi-search"></i>
+                <input type="text" class="search-box" id="searchBox" placeholder="Buscar municipio...">
+            </div>
+
+            <div class="sidebar-stats">
+                <div class="stat-card">
+                    <i class="fi fi-rr-marker"></i>
+                    <div class="stat-card-body">
+                        <span class="stat-label">Nodos</span>
+                        <span class="stat-value" id="totalNodos">-</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fi fi-rr-interlining"></i>
+                    <div class="stat-card-body">
+                        <span class="stat-label">Aristas</span>
+                        <span class="stat-value" id="totalConexiones">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="sidebar-block">
+                <h2 class="sidebar-block-title"><i class="fi fi-rr-layers"></i> Capas del mapa</h2>
+                <div class="sidebar-toggles">
+                    <label class="toggle-chip">
+                        <input type="checkbox" id="showNodes" checked>
+                        <i class="fi fi-rr-circle-small"></i><span>Nodos</span>
+                    </label>
+                    <label class="toggle-chip">
+                        <input type="checkbox" id="showConnections" checked>
+                        <i class="fi fi-rr-shuffle"></i><span>Conexiones</span>
+                    </label>
+                    <label class="toggle-chip">
+                        <input type="checkbox" id="showLabels" checked>
+                        <i class="fi fi-rr-tags"></i><span>Etiquetas</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="sidebar-block">
+                <h2 class="sidebar-block-title"><i class="fi fi-rr-road"></i> Tipo de arista</h2>
+                <div class="sidebar-radios">
+                    <label class="radio-card">
+                        <input type="radio" name="routeType" id="roadRoute" checked>
+                        <span class="radio-card-inner">
+                            <i class="fi fi-rr-road"></i>
+                            <span>Carretera</span>
+                        </span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="routeType" id="straightLine">
+                        <span class="radio-card-inner">
+                            <i class="fi fi-rr-ruler-combined"></i>
+                            <span>Línea recta</span>
+                        </span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="sidebar-block sidebar-block-grow">
+                <h2 class="sidebar-block-title"><i class="fi fi-rr-chart-tree"></i> Herramientas</h2>
+                <nav class="sidebar-nav">
+                    <button type="button" class="nav-btn" id="calcularExcentricidades">
+                        <i class="fi fi-rr-chart-histogram"></i>
+                        <span>Excentricidades</span>
+                    </button>
+                    <button type="button" class="nav-btn" id="calcularRutas">
+                        <i class="fi fi-rr-route"></i>
+                        <span>Rutas</span>
+                    </button>
+                    <button type="button" class="nav-btn" id="calcularCiclos">
+                        <i class="fi fi-rr-rotate-right"></i>
+                        <span>Ciclos</span>
+                    </button>
+                    <button type="button" class="nav-btn nav-btn-muted" id="recargarRutas">
+                        <i class="fi fi-rr-refresh"></i>
+                        <span>Recargar rutas</span>
+                    </button>
+                </nav>
+            </section>
+
+            <section class="sidebar-block sidebar-nodes">
+                <button type="button" class="nav-btn nav-btn-outline" id="togglePanel">
+                    <i class="fi fi-rr-list"></i>
+                    <span>Lista de municipios</span>
+                </button>
+                <div class="sidebar-node-list" id="nodePanelContent">
+                    <div class="node-list" id="nodeList"></div>
+                </div>
+            </section>
+
+            <p class="icon-attribution sidebar-attribution">
+                Iconos <a href="https://www.flaticon.com/uicons" target="_blank" rel="noopener">Flaticon</a>
+            </p>
+        </aside>
+
+        <!-- Mapa a pantalla completa (resto del viewport) -->
+        <main class="map-stage">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <!-- Botones ocultos: compatibilidad con JS existente -->
+    <button type="button" id="toggleExcentricidadesPanel" class="sr-only" aria-hidden="true"></button>
+    <button type="button" id="toggleRutasPanel" class="sr-only" aria-hidden="true"></button>
+    <button type="button" id="toggleCiclosPanel" class="sr-only" aria-hidden="true"></button>
+    <div id="nodePanel" class="sr-only" aria-hidden="true"></div>
+
+    <!-- Cajón: Excentricidades -->
+    <div class="tool-drawer" id="excentricidadesPanel" aria-hidden="true">
+        <div class="drawer-backdrop" data-drawer="excentricidadesPanel"></div>
+        <div class="drawer-panel" id="excentricidadesPanelContent">
+            <header class="drawer-header drawer-header-brand">
+                <h3><i class="fi fi-rr-chart-histogram"></i> Excentricidades</h3>
+                <button type="button" class="drawer-close" data-drawer="excentricidadesPanel" title="Cerrar">
+                    <i class="fi fi-rr-cross-small"></i>
+                </button>
+            </header>
+            <div class="drawer-body">
+                <section class="sidebar-block drawer-section drawer-section-compact">
+                    <div class="drawer-stats">
+                        <div class="stat-card">
+                            <i class="fi fi-rr-target"></i>
+                            <div class="stat-card-body">
+                                <span class="stat-label">Radio</span>
+                                <span class="stat-value" id="radioGrafo">-</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fi fi-rr-expand"></i>
+                            <div class="stat-card-body">
+                                <span class="stat-label">Diámetro</span>
+                                <span class="stat-value" id="diametroGrafo">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="btnCaminoDiametro" class="ecc-btn-diametro" title="Ruta más larga del grafo">
+                        <i class="fi fi-rr-route"></i> Ver ruta del diámetro
+                    </button>
+                </section>
+                <section id="eccRutaDetalle" class="ecc-ruta-detalle is-hidden" aria-live="polite">
+                    <div class="ecc-ruta-detalle-header">
+                        <strong id="eccRutaTitulo">Ruta de excentricidad</strong>
+                        <button type="button" id="eccRutaCerrar" class="ecc-ruta-cerrar" title="Cerrar">&times;</button>
+                    </div>
+                    <p id="eccRutaResumen" class="ecc-ruta-resumen"></p>
+                    <p id="eccRutaCamino" class="ecc-ruta-camino"></p>
+                </section>
+                <details class="ecc-centros-details" id="eccCentrosDetails">
+                    <summary class="ecc-centros-summary">
+                        <span><i class="fi fi-rr-star"></i> Centros del grafo</span>
+                        <span class="ecc-centros-count" id="eccCentrosCount">0</span>
+                    </summary>
+                    <div id="nodosCentroList" class="ecc-centros-chips" aria-label="Municipios centro"></div>
+                </details>
+                <section class="sidebar-block drawer-section drawer-section-compact ecc-toolbar">
+                    <div class="ecc-filter-row">
+                        <input type="text" id="filtroExcentricidades" class="drawer-input" placeholder="Buscar municipio o ID...">
+                        <span class="ecc-filter-count" id="eccFilterCount" aria-live="polite"></span>
+                    </div>
+                    <div class="ecc-type-filters" role="group" aria-label="Filtrar por tipo">
+                        <button type="button" class="ecc-filter-btn is-active" data-ecc-filter="all">Todos</button>
+                        <button type="button" class="ecc-filter-btn" data-ecc-filter="radio">Radio</button>
+                        <button type="button" class="ecc-filter-btn" data-ecc-filter="centro">Centro</button>
+                        <button type="button" class="ecc-filter-btn" data-ecc-filter="diametro">Diámetro</button>
+                    </div>
+                    <div class="ecc-legend" aria-hidden="true">
+                        <span class="ecc-legend-item ecc-legend-radio">Radio</span>
+                        <span class="ecc-legend-item ecc-legend-centro">Centro</span>
+                        <span class="ecc-legend-item ecc-legend-diametro">Diámetro</span>
+                    </div>
+                </section>
+                <div class="drawer-table-wrap drawer-scroll">
+                    <table class="excentricidades-table drawer-table">
+                        <thead>
+                            <tr><th>#</th><th>Nombre</th><th>Exc.</th><th>Tipo</th></tr>
+                        </thead>
+                        <tbody id="excentricidadesTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cajón: Rutas -->
+    <div class="tool-drawer" id="rutasPanel" aria-hidden="true">
+        <div class="drawer-backdrop" data-drawer="rutasPanel"></div>
+        <div class="drawer-panel" id="rutasPanelContent">
+            <header class="drawer-header drawer-header-brand">
+                <h3><i class="fi fi-rr-route"></i> Rutas</h3>
+                <div class="drawer-header-actions">
+                    <button type="button" class="nav-btn nav-btn-muted drawer-btn-sm" id="btnLimpiarRuta">
+                        <i class="fi fi-rr-trash"></i><span>Limpiar</span>
+                    </button>
+                    <button type="button" class="drawer-close" data-drawer="rutasPanel"><i class="fi fi-rr-cross-small"></i></button>
+                </div>
+            </header>
+            <div class="drawer-body drawer-scroll">
+                <section class="sidebar-block drawer-section">
+                    <h2 class="sidebar-block-title"><i class="fi fi-rr-map-marker"></i> Origen y destino</h2>
+                    <div class="drawer-field">
+                        <label for="nodoOrigen">Municipio origen</label>
+                        <select id="nodoOrigen" class="drawer-input node-select">
+                            <option value="">Seleccione...</option>
+                        </select>
+                    </div>
+                    <div class="drawer-field">
+                        <label for="nodoDestino">Municipio destino</label>
+                        <select id="nodoDestino" class="drawer-input node-select">
+                            <option value="">Seleccione...</option>
+                        </select>
+                    </div>
+                    <button type="button" id="btnCalcularRutas" class="nav-btn">
+                        <i class="fi fi-rr-calculator"></i><span>Calcular ruta</span>
+                    </button>
+                </section>
+                <div id="rutasResultados" class="drawer-results" style="display: none;">
+                    <section class="sidebar-block drawer-section">
+                        <h2 class="sidebar-block-title"><i class="fi fi-rr-star"></i> Ruta óptima</h2>
+                        <div class="drawer-card drawer-card-highlight" id="rutaOptimaInfo"></div>
+                    </section>
+                    <section class="sidebar-block drawer-section">
+                        <h2 class="sidebar-block-title"><i class="fi fi-rr-apps"></i> Otras rutas</h2>
+                        <div class="drawer-list" id="rutasPosiblesList"></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cajón: Ciclos -->
+    <div class="tool-drawer" id="ciclosPanel" aria-hidden="true">
+        <div class="drawer-backdrop" data-drawer="ciclosPanel"></div>
+        <div class="drawer-panel" id="ciclosPanelContent">
+            <header class="drawer-header drawer-header-brand">
+                <h3><i class="fi fi-rr-rotate-right"></i> Ciclos</h3>
+                <div class="drawer-header-actions">
+                    <button type="button" class="nav-btn nav-btn-muted drawer-btn-sm" id="btnLimpiarCiclo">
+                        <i class="fi fi-rr-trash"></i><span>Limpiar</span>
+                    </button>
+                    <button type="button" class="drawer-close" data-drawer="ciclosPanel"><i class="fi fi-rr-cross-small"></i></button>
+                </div>
+            </header>
+            <div class="drawer-body drawer-scroll">
+                <section class="sidebar-block drawer-section">
+                    <h2 class="sidebar-block-title"><i class="fi fi-rr-search"></i> Buscar ciclo</h2>
+                    <div class="drawer-field">
+                        <label for="filtroCicloNodo">Filtrar municipio</label>
+                        <input type="text" id="filtroCicloNodo" class="drawer-input" placeholder="Filtrar...">
+                    </div>
+                    <div class="drawer-field">
+                        <label for="nodoInicioCiclo">Nodo inicial</label>
+                        <select id="nodoInicioCiclo" class="drawer-input drawer-select-list node-select" size="6">
+                            <option value="">Seleccione...</option>
+                        </select>
+                    </div>
+                    <button type="button" id="btnCalcularCiclos" class="nav-btn">
+                        <i class="fi fi-rr-search"></i><span>Buscar ciclos</span>
+                    </button>
+                </section>
+                <div id="ciclosResultados" class="drawer-results" style="display: none;">
+                    <section class="sidebar-block drawer-section">
+                        <h2 class="sidebar-block-title"><i class="fi fi-rr-circle"></i> Ciclos simples</h2>
+                        <p class="drawer-count" id="ciclosSimplesCount">0 ciclos</p>
+                        <div class="drawer-list drawer-list-scroll" id="ciclosSimplesList"></div>
+                    </section>
+                    <section class="sidebar-block drawer-section">
+                        <h2 class="sidebar-block-title"><i class="fi fi-rr-refresh"></i> Ciclos generales</h2>
+                        <p class="drawer-count" id="ciclosGeneralesCount">0 ciclos</p>
+                        <div class="drawer-list drawer-list-scroll" id="ciclosGeneralesList"></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+        <p>Cargando mapa y datos...</p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="/js/mapa.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "diametro_saltos": 17,
+  "camino_mas_largo": {
+    "desde": "Villa Rica",
+    "hasta": "San Juanito",
+    "saltos": 17,
+    "ruta_municipios": [
+      "Villa Rica",
+      "Miranda",
+      "Pradera",
+      "Ginebra",
+      "San Pedro",
+      "Andalucía",
+      "Caicedonia",
+      "Circasia",
+      "Villamaría",
+      "Casabianca",
+      "Guayabal",
+      "Beltrán",
+      "Chaguaní",
+      "Facatativá",
+      "Funza",
+      "Bogotá",
+      "Ubaque",
+      "San Juanito"
+    ]
+  },
+  "municipios_con_excentricidad_maxima_17": [
+    "Villa Rica",
+    "Funza",
+    "El Bordo",
+    "Fosca",
+    "El Rosario",
+    "Guayabal de Síquima",
+    "Morales",
+    "Toribío",
+    "San Martín",
+    "Santander de Quilichao",
+    "Balboa",
+    "Ubaque",
+    "San Juanito",
+    "Buenos Aires",
+    "Chaguaní",
+    "San Antonio del Tequendama",
+    "Cali",
+    "Beltrán",
+    "Jambaló",
+    "Villavicencio",
+    "Popayán"
+  ],
+  "cantidad_rojos": 21,
+  "ejemplo_cali": {
+    "excentricidad": 17,
+    "municipios_mas_lejanos_desde_cali": [
+      "San Martín"
+    ]
+  }
+}
